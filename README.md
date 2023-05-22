@@ -12,7 +12,7 @@ Este projeto utiliza os seguintes recursos principais:
 
 .Coroutines.
 
-.Retrofit, para recuperar dados de APIs eexindo-os em seu aplicativo..
+.Retrofit, para recuperar dados de APIs e exibi-los em seu aplicativo..
 
 .Room, para salvar, atualizar e excluir dados em um banco de dados local..
 
