@@ -3,16 +3,15 @@ package br.com.carvalho.newsappstarter.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import br.com.carvalho.newsappstarter.R
-import br.com.carvalho.newsappstarter.R.id.ivArticleImage
-import br.com.carvalho.newsappstarter.R.id.tvTitle
+import br.com.carvalho.newsappstarter.databinding.ItemNewsBinding
 import br.com.carvalho.newsappstarter.model.Article
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.item_news.view.*
+//import kotlinx.android.synthetic.main.item_news.view.*
+private lateinit var binding: ItemNewsBinding
 
 class MainAdapter : RecyclerView.Adapter<MainAdapter.ArticleViewHolder>() {
 
@@ -44,11 +43,11 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.ArticleViewHolder>() {
 
         val article = differ.currentList[position]
         holder.itemView.apply {
-            Glide.with(this).load(article.urlToImage).into(ivArticleImage)
-            tvTitle.text = article.author ?: article.source?.name
-            tvSource.text = article.source?.name ?: article.author
-            tvDesciption.text = article.description
-            tvPublishedAt.text = article.publishedAt
+            Glide.with(this).load(article.urlToImage).into(binding.ivArticleImage)
+            binding.tvTitle.text = article.author ?: article.source?.name
+            binding.tvSource.text = article.source?.name ?: article.author
+            binding.tvDesciption.text = article.description
+            binding.tvPublishedAt.text = article.publishedAt
 
             setOnClickListener {
                 onItemClickListener?.let { click ->
