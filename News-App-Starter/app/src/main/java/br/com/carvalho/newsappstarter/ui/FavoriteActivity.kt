@@ -1,11 +1,12 @@
-package br.com.carvalho.newsappstarter
+package br.com.carvalho.newsappstarter.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import br.com.carvalho.newsappstarter.R
 
-class MainActivity : AppCompatActivity() {
+class FavoriteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_favorite)
     }
 }
