@@ -10,10 +10,10 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 
-internal class UtilQueryTextListener(
-    lifecycle: Lifecycle,
+internal class UtilQueryTextListener( lifecycle: Lifecycle,
     private val utilQueryTextListener: (String?) -> Unit
-) : SearchView.OnQueryTextListener, LifecycleObserver {
+) : SearchView.OnQueryTextListener, LifecycleObserver,
+    androidx.appcompat.widget.SearchView.OnQueryTextListener {
 
     private val coroutineScope = lifecycle.coroutineScope
     private var searchJob: Job? = null
