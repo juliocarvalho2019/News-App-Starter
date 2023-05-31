@@ -11,7 +11,7 @@ import br.com.carvalho.newsappstarter.presenter.ViewHome
 import br.com.carvalho.newsappstarter.presenter.favorite.FavoritePresenter
 import com.google.android.material.snackbar.Snackbar
 
-class ArticleActivity : AppCompatActivity(), ViewHome.View {
+class ArticleActivity : AppCompatActivity(), ViewHome.Favorite {
     private lateinit var binding: ActivityArticleBinding
     private lateinit var article: Article
 
@@ -23,7 +23,7 @@ class ArticleActivity : AppCompatActivity(), ViewHome.View {
 
         getArticle()
         val dataSource = NewsDataSource(this)
-        presenter = FavoritePresenter(dataSource)
+        presenter = FavoritePresenter(this, dataSource)
 
         binding.webView.apply {
             webViewClient = WebViewClient()
@@ -46,19 +46,6 @@ class ArticleActivity : AppCompatActivity(), ViewHome.View {
         intent.extras?.let { articleSend ->
             article = articleSend.get("article") as Article
         }
-    }
-
-
-    override fun showProgressBar() {
-        TODO("Not yet implemented")
-    }
-
-    override fun showFailure(message: String) {
-        TODO("Not yet implemented")
-    }
-
-    override fun hideProgressBar() {
-        TODO("Not yet implemented")
     }
 
     override fun showArticles(articles: List<Article>) {
