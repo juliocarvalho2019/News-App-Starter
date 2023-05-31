@@ -17,11 +17,12 @@ import br.com.carvalho.newsappstarter.presenter.ViewHome
 import br.com.carvalho.newsappstarter.presenter.favorite.FavoritePresenter
 import br.com.carvalho.newsappstarter.presenter.search.SearchPresenter
 
-class FavoriteActivity : AppCompatActivity(), ViewHome.View  {
+class FavoriteActivity : AppCompatActivity(), ViewHome.Favorite  {
 
     private val mainAdapter by lazy {
         MainAdapter()
     }
+
     private lateinit var binding: ActivityFavoriteBinding
     private lateinit var presenter: FavoritePresenter
         override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,8 +31,8 @@ class FavoriteActivity : AppCompatActivity(), ViewHome.View  {
         setContentView(binding.root)
 
         val datasource = NewsDataSource(this)
-       // presenter = FavoritePresenter(this, datasource)
-       // presenter.getAll
+        presenter = FavoritePresenter(this, datasource)
+        presenter.getAll()
         configRecycle()
         clickAdapter()
     }
@@ -55,19 +56,6 @@ class FavoriteActivity : AppCompatActivity(), ViewHome.View  {
             startActivity(intent)
         }
     }
-
-    override fun showProgressBar() {
-        //binding.rvProgressBarSearch.visibility = View.VISIBLE
-    }
-
-    override fun showFailure(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
-    }
-
-    override fun hideProgressBar() {
-        //binding.rvProgressBarSearch.visibility = View.INVISIBLE
-    }
-
 
     override fun showArticles(articles: List<Article>) {
         mainAdapter.differ.submitList(articles.toList())
