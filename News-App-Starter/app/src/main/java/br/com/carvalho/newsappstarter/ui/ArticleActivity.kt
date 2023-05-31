@@ -8,13 +8,14 @@ import br.com.carvalho.newsappstarter.databinding.ActivityArticleBinding
 import br.com.carvalho.newsappstarter.model.Article
 import br.com.carvalho.newsappstarter.model.data.NewsDataSource
 import br.com.carvalho.newsappstarter.presenter.ViewHome
+import br.com.carvalho.newsappstarter.presenter.favorite.FavoritePresenter
 import com.google.android.material.snackbar.Snackbar
 
 class ArticleActivity : AppCompatActivity(), ViewHome.View {
     private lateinit var binding: ActivityArticleBinding
     private lateinit var article: Article
 
-    //private lateinit var  presenter: FavoritePresenter
+    private lateinit var presenter: FavoritePresenter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityArticleBinding.inflate(layoutInflater)
@@ -22,7 +23,7 @@ class ArticleActivity : AppCompatActivity(), ViewHome.View {
 
         getArticle()
         val dataSource = NewsDataSource(this)
-        //   presenter = FavoritePresenter(this, dataSource)
+        presenter = FavoritePresenter(dataSource)
 
         binding.webView.apply {
             webViewClient = WebViewClient()
@@ -32,8 +33,8 @@ class ArticleActivity : AppCompatActivity(), ViewHome.View {
         }
 
         binding.fab.setOnClickListener {
-            //presenter.saveArticle(article)
-            dataSource.saveArticle(article)
+            presenter.saveArticle(article)
+            // dataSource.saveArticle(article)
             Snackbar.make(
                 it, R.string.article_saved_successful,
                 Snackbar.LENGTH_LONG

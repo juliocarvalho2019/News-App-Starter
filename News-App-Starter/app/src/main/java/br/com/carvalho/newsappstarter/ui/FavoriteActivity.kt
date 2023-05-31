@@ -14,6 +14,7 @@ import br.com.carvalho.newsappstarter.databinding.ActivitySearchBinding
 import br.com.carvalho.newsappstarter.model.Article
 import br.com.carvalho.newsappstarter.model.data.NewsDataSource
 import br.com.carvalho.newsappstarter.presenter.ViewHome
+import br.com.carvalho.newsappstarter.presenter.favorite.FavoritePresenter
 import br.com.carvalho.newsappstarter.presenter.search.SearchPresenter
 
 class FavoriteActivity : AppCompatActivity(), ViewHome.View  {
@@ -22,7 +23,7 @@ class FavoriteActivity : AppCompatActivity(), ViewHome.View  {
         MainAdapter()
     }
     private lateinit var binding: ActivityFavoriteBinding
-    //private lateinit var presenter: FavoritePresenter
+    private lateinit var presenter: FavoritePresenter
         override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFavoriteBinding.inflate(layoutInflater)
