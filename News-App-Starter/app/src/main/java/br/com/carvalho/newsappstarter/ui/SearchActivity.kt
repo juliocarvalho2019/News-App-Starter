@@ -37,6 +37,7 @@ class SearchActivity : AppCompatActivity(), ViewHome.View {
         presenter = SearchPresenter(this, datasource)
         configRecycle()
         search()
+        clickAdapter()
     }
 
     private fun search() {
@@ -63,6 +64,14 @@ class SearchActivity : AppCompatActivity(), ViewHome.View {
                     this@SearchActivity, androidx.recyclerview.widget.DividerItemDecoration.VERTICAL
                 )
             )
+        }
+    }
+
+    private fun clickAdapter() {
+        mainAdapter.setOnclickListener { article ->
+            val intent = Intent(this, ArticleActivity::class.java)
+            intent.putExtra("article", article)
+            startActivity(intent)
         }
     }
 

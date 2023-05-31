@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity(), ViewHome.View {
         mainAdapter.setOnclickListener { article ->
             val intent = Intent(this, ArticleActivity::class.java)
             intent.putExtra("article", article)
+            startActivity(intent)
         }
     }
 
