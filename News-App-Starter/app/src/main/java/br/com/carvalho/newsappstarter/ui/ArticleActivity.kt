@@ -21,8 +21,8 @@ class ArticleActivity : AppCompatActivity(), ViewHome.View {
         setContentView(binding.root)
 
         getArticle()
-//        val dataSource = NewsDataSource(this)
-//        presenter = FavoritePresenter(this, dataSource)
+        val dataSource = NewsDataSource(this)
+        //   presenter = FavoritePresenter(this, dataSource)
 
         binding.webView.apply {
             webViewClient = WebViewClient()
@@ -31,13 +31,14 @@ class ArticleActivity : AppCompatActivity(), ViewHome.View {
             }
         }
 
-//        binding.fab.setOnClickListener {
-//            //presenter.saveArticle(article)
-//            Snackbar.make(
-//                it, R.string.article_saved_successful,
-//                Snackbar.LENGTH_LONG
-//            ).show()
-//        }
+        binding.fab.setOnClickListener {
+            //presenter.saveArticle(article)
+            dataSource.saveArticle(article)
+            Snackbar.make(
+                it, R.string.article_saved_successful,
+                Snackbar.LENGTH_LONG
+            ).show()
+        }
     }
 
     private fun getArticle() {
