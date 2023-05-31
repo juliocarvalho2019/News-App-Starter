@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity(), ViewHome.View {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val datasource = NewsDataSource()
+        val datasource = NewsDataSource(this)
         presenter = NewsPresenter(this, datasource)
         presenter.requestAll()
         configRecycle()

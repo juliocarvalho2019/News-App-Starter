@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import br.com.carvalho.newsappstarter.R
 import br.com.carvalho.newsappstarter.databinding.ActivityArticleBinding
 import br.com.carvalho.newsappstarter.model.Article
+import br.com.carvalho.newsappstarter.model.data.NewsDataSource
 import br.com.carvalho.newsappstarter.presenter.ViewHome
 import com.google.android.material.snackbar.Snackbar
 

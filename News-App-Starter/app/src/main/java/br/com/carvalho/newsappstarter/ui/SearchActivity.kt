@@ -33,7 +33,7 @@ class SearchActivity : AppCompatActivity(), ViewHome.View {
         binding = ActivitySearchBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val datasource = NewsDataSource()
+        val datasource = NewsDataSource(this)
         presenter = SearchPresenter(this, datasource)
         configRecycle()
         search()
