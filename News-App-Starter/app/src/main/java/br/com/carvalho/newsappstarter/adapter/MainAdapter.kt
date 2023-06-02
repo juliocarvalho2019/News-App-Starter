@@ -43,7 +43,7 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.ArticleViewHolder>() {
 
         with(holder) {
             with(differ.currentList[position]) {
-                Glide.with(holder.itemView.context).load(urlToImage).into(binding.ivArticleImage)
+                Glide.with(holder.itemView.context).load(this.urlToImage).into(binding.ivArticleImage)
                 binding.tvTitle.text = author ?: source?.name
                 binding.tvSource.text = source?.name ?: author
                 binding.tvDesciption.text = description

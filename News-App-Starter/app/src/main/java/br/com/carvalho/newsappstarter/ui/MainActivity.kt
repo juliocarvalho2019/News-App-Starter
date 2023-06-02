@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity(), ViewHome.View {
             layoutManager = LinearLayoutManager(this@MainActivity)
             addItemDecoration(
                 DividerItemDecoration(
-                    this@MainActivity, DividerItemDecoration.VERTICAL
+                    this@MainActivity, androidx.recyclerview.widget.DividerItemDecoration.VERTICAL
                 )
             )
         }

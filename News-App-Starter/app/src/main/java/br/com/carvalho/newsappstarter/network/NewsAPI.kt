@@ -7,10 +7,15 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface NewsAPI {
-    @GET("/v2/top-headlines")
+    //@GET("/v2/top-headlines")
+    @GET("/v2/everything")
     suspend fun getBreakingNews(
-        @Query("country")
-        countryCode: String = "br",
+//        @Query("country")
+//        countryCode: String = "br",
+//        @Query("category")
+//        categoryCode: String = "business",
+        @Query("q")
+        searchQuery: String,
         @Query("page")
         pageNumber: Int = 1,
         @Query("apiKey")

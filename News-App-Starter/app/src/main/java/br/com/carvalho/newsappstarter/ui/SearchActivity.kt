@@ -2,15 +2,11 @@ package br.com.carvalho.newsappstarter.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.room.util.query
-import br.com.carvalho.newsappstarter.R
 import br.com.carvalho.newsappstarter.adapter.MainAdapter
 import br.com.carvalho.newsappstarter.databinding.ActivitySearchBinding
 import br.com.carvalho.newsappstarter.model.Article
